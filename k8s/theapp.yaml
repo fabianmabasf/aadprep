@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  labels:
+    run: theapp
+  name: theapp
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    run: theapp
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: theapp
+  name: theapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: theapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: theapp
+    spec:
+      containers:
+      - image: docker.io/cadull/theapp:latest
+        imagePullPolicy: Always
+        name: theapp
+        resources:
+          limits:
+            memory: 200Mi
+            cpu: "0.4" 
+          requests:
+            memory: 20Mi
+            cpu: "0.04" 
