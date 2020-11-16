@@ -37,6 +37,9 @@ spec:
       - image: docker.io/cadull/theapp:latest
         imagePullPolicy: Always
         name: theapp
+        env:
+        - name: STAGE
+          value: "K8S"
         resources:
           limits:
             memory: 200Mi
