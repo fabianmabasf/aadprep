@@ -32,4 +32,10 @@ And to follow the instructions provided.
     az aks get-credentials --name <some-name>aks --resource-group <some-name>rg
     kubectl apply -f theapp.yaml
     ```
+1. Check our solution:
+    ```sh
+    kubectl get svc
+    ```
+    From the output of this, copy the external IP for our service and enter it in a web browser. That should then show you something like this:
 
+    ![Our app's start page](./media/appstartpage.png)
