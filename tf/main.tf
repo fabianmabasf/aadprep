@@ -2,6 +2,7 @@ locals {
   resource_group_name = "${var.name_prefix}rg"
   cluster_name = "${var.name_prefix}aks"
   cluster_dns_prefix = "${var.name_prefix}aks"
+  acr_name = "${var.name_prefix}reg"
 }
 
 resource "azurerm_resource_group" "aks_rg" {
@@ -31,4 +32,12 @@ resource "azurerm_kubernetes_cluster" "aks_simple" {
     type = "SystemAssigned"
   }
 
+}
+
+resource "azurerm_container_registry" "aksacr" {
+  name                     = local.acr_name
+  resource_group_name      = azurerm_resource_group.aks_rg.name
+  location                 = azurerm_resource_group.aks_rg.location
+  sku                      = "Premium"
+  admin_enabled            = true
 }
