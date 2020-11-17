@@ -39,7 +39,7 @@ spec:
         name: theapp
         env:
         - name: STAGE
-          value: "K8S"
+          value: "AKS"
         resources:
           limits:
             memory: 200Mi
