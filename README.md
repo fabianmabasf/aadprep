@@ -142,7 +142,7 @@ A very handy way of doing this in Azure is to use the Azure Container Registry (
 
 1. Apply the configuration again using `kubectl apply -f`.
 
-1. Using `kubectl get pods`, you will most probably see that Kubernetes started the rolling upgrade, but got stuck after the first new pod was created, but ran into an error (status `ImageErrorPull` or `ImagePullBackoff`):
+1. Using `kubectl get pods`, you will most probably see that Kubernetes started the rolling upgrade, but got stuck after the first new pod was created and ran into an error (status `ImageErrorPull` or `ImagePullBackoff`):
 
    ```sh
    aaduser1@Azure:~$ kubectl get pod
@@ -159,7 +159,7 @@ A very handy way of doing this in Azure is to use the Azure Container Registry (
 
    At the very end of the pod's describe output, you should see a few events that describe how Kubernetes tried to get the pod running, but failed to pull the image, most probably because of an error like `unauthorized: authentication required`.
 
-   This is because our registry allows no anonymous access, and while our cluster does have an identity that identity is not yet allowed (has not been granted permission) to pull images from our registry.
+   This is because our registry allows no anonymous access and, while our cluster does have an identity, that identity is not yet allowed (has not been granted permission) to pull images from our registry.
 
    Another option here is that Kubernetes might not be able to find your image because of a wrong image name, in that case please double check the name you put into the yaml.
 
