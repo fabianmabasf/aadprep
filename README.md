@@ -99,7 +99,7 @@ So far, the workload uses a static precompiled container image that is available
 
 If we want to change more than just an environment variable, we need to build a new container image. For example, we might want to change the behaviour of an algorithm in our code, or simply change the text that presents our stage label.
 
-A very handy way of doing this in Azure is to use the Azure Container Registry (ACR). That way, we do not need to aquire a Docker host machine (the cloud shell only contains the Docker client, it is not connected to a Docker daemon by default).
+A very handy way of doing this in Azure is to use the Azure Container Registry (ACR). That way, we do not need to acquire a Docker host machine (the cloud shell only contains the Docker client, it is not connected to a Docker daemon by default).
 
 1. First, navigate to the directory containing our app's code and open an editor (here, we are using `code .` to open the whole directory in the cloud shell version of Visual Studio Code. You might as well use vi, nano or another editor of choice):
 
