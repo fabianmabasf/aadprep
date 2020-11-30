@@ -14,7 +14,7 @@ And to follow the instructions provided.
 
 1. Clone this repository (use the URL of your own account in case you forked or imported):
     ```sh
-    git clone https://github.com/cadullms/aadprep
+    git clone https://github.com/fabianmabasf/aadprep
     ```
 
 ## Deploy infrastructure and workload
